@@ -160,7 +160,7 @@ async def google_callback(request: StarletteRequest, db: AsyncSession = Depends(
         await db.refresh(db_user)
     # Issue JWT
     access_token = create_access_token({"sub": str(db_user.id), "email": db_user.email})
-    response = RedirectResponse(url="http://localhost:3000/profile")
+    response = RedirectResponse(url="https://ui-oauth-integration.vercel.app/profile")
     response.set_cookie(
         key="access_token",
         value=access_token,
