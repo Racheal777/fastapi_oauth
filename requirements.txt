@@ -1,5 +1,5 @@
 fastapi
-uvicorn
+uvicorn[standard]
 sqlalchemy[asyncio]
 asyncpg
 psycopg2-binary
@@ -8,4 +8,9 @@ passlib[bcrypt]
 python-jose[cryptography]
 httpx
 authlib
-email-validator 
+email-validator
+itsdangerous
+alembic
+bcrypt
+cryptography
+python-multipart 
