@@ -122,8 +122,9 @@ async def login(user: UserLogin, db: AsyncSession = Depends(get_db)):
         httponly=True,
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         expires=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
-        samesite="lax",
-        secure=False  # Set to True in production with HTTPS
+        samesite="none",
+        secure=True,
+        domain=None
     )
     return response
 
@@ -164,11 +165,12 @@ async def google_callback(request: StarletteRequest, db: AsyncSession = Depends(
     response.set_cookie(
         key="access_token",
         value=access_token,
-        httponly=False,
+        httponly=True,
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         expires=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
-        samesite="lax",
-        secure=True  # Set to True in production
+        samesite="none",
+        secure=True,
+        domain=None
     )
     return response
 
