@@ -164,11 +164,11 @@ async def google_callback(request: StarletteRequest, db: AsyncSession = Depends(
     response.set_cookie(
         key="access_token",
         value=access_token,
-        httponly=True,
+        httponly=False,
         max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         expires=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
         samesite="lax",
-        secure=False  # Set to True in production
+        secure=True  # Set to True in production
     )
     return response
 
