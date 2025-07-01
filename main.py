@@ -24,15 +24,13 @@ secret_key = os.getenv("SECRET_KEY") or "your-secret-key"
 
 app.add_middleware(SessionMiddleware, secret_key=secret_key)
 
-
-
 app.add_middleware(
-       CORSMiddleware,
-       allow_origins=["*"],  # Or specify your frontend URL(s)
-       allow_credentials=True,
-       allow_methods=["*"],
-       allow_headers=["*"],
-   )
+    CORSMiddleware,
+    allow_origins=["https://ui-oauth-integration.vercel.app"],  # Your frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(auth_router, prefix="/api/v1/auth")
 
