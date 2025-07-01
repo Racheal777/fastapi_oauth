@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy[asyncio]
+asyncpg
+python-dotenv
+passlib[bcrypt]
+python-jose[cryptography]
+httpx
+authlib 
